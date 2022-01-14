@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+     
+<h:head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+    <title>College Details Portal</title>
+    <style type="text/css">
+        .order-table{
+        width: 90% !important;
+        margin: 17px 58px 0 !important;    
+        
+	border-collapse:collapse;
+}
+.btnSpace {
+            padding: 12px;
+            font-size: 15px;
+            background-color: lightgreen;
+            margin: 17px;
+        }
+        .btndel {
+            padding: 10px;
+            font-size: 12px;
+            background-color: lightcoral;
+            
+        }
+
+.order-table-header
+{
+	text-align:center;
+	background:none repeat scroll 0 0 #E5E5E5;
+	border-bottom:1px solid #BBBBBB;
+	padding:16px;
+}
+
+.order-table-odd-row{
+	text-align:center;
+	background:none repeat scroll 0 0 #FFFFFFF;
+	border-top:1px solid #BBBBBB;
+}
+
+.order-table-even-row{
+	text-align:center;
+	background:none repeat scroll 0 0 #F9F9F9;
+	border-top:1px solid #BBBBBB;
+}     
+    </style>
+</h:head>
+<h:body>
+    <center><h2><h:outputText value="Student Records" style="font-size:35px;"/></h2></center>
+    <h:form id="studentForm">
+        <h:dataTable id="studentTable" binding="#{table}" value="#{studentBean.studentsList()}" var="student" class="order-table order-table-even-row order-table-header order-table-odd-row">
+            <h:column>
+                <f:facet name="header">Id</f:facet>
+                <h:outputText value="#{table.rowIndex + 1}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Student Name</f:facet>
+                <h:outputText value="#{student.name}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Email Address</f:facet>
+                <h:outputText value="#{student.email}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Password</f:facet>
+                <h:outputText value="#{student.password}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Gender</f:facet>
+                <h:outputText value="#{student.gender}" />
+            </h:column>
+        
+            <h:column>
+                <f:facet name="header">Department</f:facet>
+                <h:outputText value="#{student.department}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Semester</f:facet>
+                <h:outputText value="#{student.semester}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Mark1</f:facet>
+                <h:outputText value="#{student.mark1}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Mark2</f:facet>
+                <h:outputText value="#{student.mark2}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Mark3</f:facet>
+                <h:outputText value="#{student.mark3}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">GPA</f:facet>
+                <h:outputText value="#{student.gpa}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Delete</f:facet>
+                <h:commandButton action="#{studentBean.deleteRecords(student.id)}" value="Delete" class="btndel" />
+            </h:column>
+        </h:dataTable>
+        <center>
+            <h:commandButton action="createStudent.xhtml?faces-redirect=true" value="Create New User" class="btnSpace" />
+        </center>
+    </h:form>
+</h:body>
+</html>

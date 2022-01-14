@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+ 
+<h:head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+    
+    <title>College Information Portal</title>
+    <style type="text/css">
+        .btnWidth {
+            width: 160px;
+            margin: 25px;
+            padding: 10px;
+            background-color: lightgreen;
+        }     
+        
+        .divcss{
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        
+  
+  .labclass
+  {
+      display: inline-block;
+      width: 120px;
+      background-color: lightgrey;
+      font-size: 20px;
+  }
+  
+  .markclass
+  {
+      display: inline-block;
+      width: 260px;
+      background-color: lightgrey;
+      font-size: 20px;
+  }
+      
+    </style>
+</h:head>
+<h:body>
+    <center><h:form id="createStudentForm">
+        <div>
+            <div class="divcss">
+                <center><h2>Create Student Record</h2></center>
+            </div>
+        </div>
+        <hr/>
+        <div >
+            <div class="divcss">
+               <h:outputLabel value="UserName: " class="labclass" />
+                <h:inputText value="#{studentBean.name}" validatorMessage="User name is required">
+                    <f:validateRequired />
+                </h:inputText>
+            </div>
+        </div>
+        <div>
+            
+            <div class="divcss">
+                <h:outputLabel value="Email Id: " class="labclass" />
+                <h:inputText value="#{studentBean.email}" validatorMessage="Email Id is required">
+                    <f:validateRequired/>
+                </h:inputText>
+            </div>
+        </div>
+        <div>
+            
+            <div class="divcss">
+                <h:outputLabel value="Password: " class="labclass" />
+                <h:inputSecret value="#{studentBean.password}"  validatorMessage="Password is required">
+                    <f:validateRequired/>
+                </h:inputSecret>
+            </div>
+        </div>
+        <div>
+            <div class="divcss">
+               <h:outputLabel value="Department: " class="labclass" />
+                <h:inputText value="#{studentBean.department}" validatorMessage="Department is required">
+                    <f:validateRequired />
+                </h:inputText>
+            </div>
+        </div>
+        <div >
+            
+            <div class="divcss">
+            <h:outputLabel value="Semester: " class="labclass" />
+                <h:inputText value="#{studentBean.semester}" validatorMessage="Semester is required">
+                    <f:validateRequired />
+                </h:inputText>
+            </div>
+        </div>
+        
+        <div >
+            
+            <div class="divcss">
+            <h:outputLabel value="Mark in Subject 1(out of 100): " class="markclass" />
+                <h:inputText value="#{studentBean.mark1}" validatorMessage="mark is required">
+                    <f:validateRequired />
+                </h:inputText>
+            </div>
+        </div>
+        <div >
+            
+            <div class="divcss">
+            <h:outputLabel value="Mark in Subject 2(out of 100): " class="markclass" />
+                <h:inputText value="#{studentBean.mark2}" validatorMessage="mark is required">
+                    <f:validateRequired />
+                </h:inputText>
+            </div>
+        </div>
+        
+        <div >
+            
+            <div class="divcss">
+            <h:outputLabel value="Mark in Subject 3(out of 100): " class="markclass" />
+                <h:inputText value="#{studentBean.mark3}" validatorMessage="mark is required">
+                    <f:validateRequired />
+                </h:inputText>
+            </div>
+        </div>
+        <div >
+            
+            <div class="divcss">
+                <h:selectOneRadio value="#{studentBean.gender}" validatorMessage="Gender is required">
+                  <h:outputLabel value="Gender " class="labclass" />
+                    <f:selectItem itemValue="M" itemLabel="Male" /><f:selectItem itemValue="F" itemLabel="Female" />
+                    <f:validateRequired/>
+                </h:selectOneRadio>
+            </div>
+        </div>
+        
+        <div >
+            <div class="divcss">
+                <div class="col-sm-2">
+                    <h:commandButton value="Save To Database" action="#{studentBean.storeDetails(studentBean)}" class="btnWidth"  />
+                </div>
+                <div >
+                    <h:link outcome="studentDetails.xhtml" value="View Students Record List" style="background-color: yellow; padding: 15px"/>
+                </div>
+            </div>
+        </div>
+        </h:form> </center>
+</h:body>
+</html>
